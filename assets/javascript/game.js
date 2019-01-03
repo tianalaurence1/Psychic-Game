@@ -33,6 +33,14 @@ var yourGuesses = [];
         guesses = 10;
         yourGuesses = [];
     }
+    if (yourGuesses.indexOf(guesses) >= 0) {
+
+    } else {
+        yourGuesses.push(guesses);
+        document.getElementById('guesses').innerHTML = yourGuesses;
+        console.log(yourGuesses);
+        
+    }
 
     document.getElementById('wins').innerHTML = "Wins: " + wins;
     document.getElementById('losses').innerHTML = "losses: " + losses;
