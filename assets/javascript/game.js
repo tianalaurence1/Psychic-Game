@@ -2,7 +2,7 @@
     var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
     'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-// Variables for tracking our wins, losses and ties. They begin at 0.
+// Variables for tracking our wins, losses and ties. They begin at 0
 var wins = 0;
 var losses = 0;
 var guesses = 10;
@@ -14,12 +14,16 @@ var yourGuesses = [];
 
 
 
-   // When the user presses a key, it will run the following function...
+   // When the user presses a key, it will run the following function
+
    document.onkeypress = function(event) {
     var userGuess = event.key;
 
     if(userGuess === computerChoice){
         wins++;
+        guesses = 10;
+        yourGuesses = [];
+        
     }else{
         guesses--;
     }
