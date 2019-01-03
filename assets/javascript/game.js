@@ -23,13 +23,15 @@ var yourGuesses = [];
         wins++;
         guesses = 10;
         yourGuesses = [];
-        
+
     }else{
         guesses--;
     }
 
     if(guesses === 0){
-        losses++
+        losses++;
+        guesses = 10;
+        yourGuesses = [];
     }
 
     document.getElementById('wins').innerHTML = "Wins: " + wins;
