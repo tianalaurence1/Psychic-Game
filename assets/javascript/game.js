@@ -27,7 +27,7 @@ computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     if(playerGuess === computerChoice){
         won++;
         attempts = 10;
-        userArray = [];
+        userArray = playerGuess.push (event.key);
 
     }else{
         attempts--;
