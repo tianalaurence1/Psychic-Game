@@ -17,17 +17,17 @@ computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     console.log(computerChoice);
 
 }
+jsGuess()
    // user presses a key to run the following program
 
    document.onkeypress = function(event) {
-       playerGuess = event.key;
+playerGuess.push (event.key);
+   
 
-   }
-
-    if(playerGuess === computerChoice){
+    if(event.key === computerChoice){
         won++;
         attempts = 10;
-        userArray = playerGuess.push (event.key);
+        jsGuess()
 
     }else{
         attempts--;
@@ -36,20 +36,22 @@ computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     if(attempts === 0){
         lost++;
         attempts = 10;
-        userArray = [];
+        playerGuess = [];
+        jsGuess()
     }
-    if (userArray.indexOf(guesses) >= 0) {
+    if (userArray.indexOf("guesses") >= 0) {
 
     } else {
-        yourGuesses.push(guesses);
-        document.getElementById('guesses').innerHTML = yourGuesses;
-        console.log(yourGuesses);
+      //  yourGuesses.push(guesses);
+       // document.getElementById('guesses').innerHTML = yourGuesses;
+       // console.log(yourGuesses);
 
     }
 
     document.getElementById('won').innerHTML = won;
     document.getElementById('lost').innerHTML = lost;
     document.getElementById('attempts').innerHTML = attempts;
-   
+    document.getElementById('playerGuess').innerHTML = playerGuess;
 
-} 
+}
+ 
