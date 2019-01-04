@@ -1,50 +1,55 @@
 
-    var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
-    'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
 
 // tracking wins, losses, guesses. It begins at 0
-var wins = 0;
-var losses = 0;
-var guesses = 10;
-var yourGuesses = [];
+var won = 0;
+var lost = 0;
+var attempts = 10;
+var userArray = [];
+var playerGuess = [];
+var computerChoice = computerChoice;
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
+'m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-    var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+// set computerchoice to a random letter
+function jsGuess() {   
+computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    console.log(computerChoice);
 
-    console.log(computerChoice)
-
-
-
+}
    // user presses a key to run the following program
 
    document.onkeypress = function(event) {
-    var userGuess = event.key;
+       playerGuess = event.key;
 
-    if(userGuess === computerChoice){
-        wins++;
-        guesses = 10;
-        yourGuesses = [];
+   }
+
+    if(playerGuess === computerChoice){
+        won++;
+        attempts = 10;
+        userArray = [];
 
     }else{
-        guesses--;
+        attempts--;
     }
 
-    if(guesses === 0){
-        losses++;
-        guesses = 10;
-        yourGuesses = [];
+    if(attempts === 0){
+        lost++;
+        attempts = 10;
+        userArray = [];
     }
-    if (yourGuesses.indexOf(guesses) >= 0) {
+    if (userArray.indexOf(guesses) >= 0) {
 
     } else {
         yourGuesses.push(guesses);
-        document.getElementById(guesses).innerHTML = yourGuesses;
+        document.getElementById('guesses').innerHTML = yourGuesses;
         console.log(yourGuesses);
 
     }
 
-    document.getElementById('wins').innerHTML = wins;
-    document.getElementById('losses').innerHTML = losses;
-    document.getElementById('guesses').innerHTML = guesses;
+    document.getElementById('won').innerHTML = won;
+    document.getElementById('lost').innerHTML = lost;
+    document.getElementById('attempts').innerHTML = attempts;
    
 
 } 
